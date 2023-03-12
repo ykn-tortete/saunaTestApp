@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SaunaApp</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/saulog.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="index.html">
+        <h1>
+          <img
+            src ="img/logo.png"
+            alt = "SaunaApp"
+            width = "240"
+            height = "27">
+        </h1>
+      </a>
+      <a href = "#">
+        <i class="bi bi-list"></i>        
+      </a>
+    </div>
+  </header>
+
+  <div class="diary">
+    <div class="container">
+      <div class="facility">
+        <!-- <p>施設名</p>
+        <input type="text" id="facility" class="">
+      </div>
+      <div class="date">
+        <p>日付</p>
+        <input type="text" id="date" class="">
+      </div> -->
+      <div class="box 1">
+        <p>1セット</p>
+        <div class="sauna-temp">
+          <p>サウナの温度</p>
+          <input type="text" id="sauna-temp" class="">
+        </div>
+        <div class="sauna-time">
+          <p>サウナ時間</p>
+          <input type="text" id="sauna-time" class="">
+        </div>
+        <div class="sauna-hr">
+          <p>サウナ退出時の心拍数</p>
+          <input type="text" id="sauna-hr" class="">
+        </div>
+        <div class="bath-temp">
+          <p>水風呂の水温</p>
+          <input type="text" id="bath-temp" class="">
+        </div>
+        <div class="bath-time">
+          <p>水風呂時間</p>
+          <input type="text" id="bath-time" class="">
+        </div>
+        <div class="score">
+          <p>点数</p>
+          <input type="text" id="score" class="">
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <button id="add">送信</button>
+    </div>
+  </div>
+
+  <footer class="copyright">
+    <small>(c) saulog.com</small>
+  </footer>
+  <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-firestore.js"></script>
+    <script src="js/saulog.js"></script>
+</body>
+</html>
