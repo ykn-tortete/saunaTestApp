@@ -44,37 +44,50 @@
     </div>
 
     <div class="diary">
-      <div class="container">
-        <div class="box 1">
-          <p>1セット</p>
-          <div class="sauna-temp">
-            <p>サウナの温度</p>
-            <input type="text" id="sauna-temp" class="">
-          </div>
-          <div class="sauna-time">
-            <p>サウナ時間</p>
-            <input type="text" id="sauna-time" class="">
-          </div>
-          <div class="sauna-hr">
-            <p>サウナ退出時の心拍数</p>
-            <input type="text" id="sauna-hr" class="">
-          </div>
-          <div class="bath-temp">
-            <p>水風呂の水温</p>
-            <input type="text" id="bath-temp" class="">
-          </div>
-          <div class="bath-time">
-            <p>水風呂時間</p>
-            <input type="text" id="bath-time" class="">
-          </div>
-          <div class="score">
-            <p>点数</p>
-            <input type="text" id="score" class="">
-          </div>
+      <div class="general">
+        <div class="date">
+          <p>日付</p>
+          <input type="date" id="date">
+        </div>
+        <div class="facility">
+          <p>施設</p>
+          <select id="facility">
+          </select>
+        </div>
+        <div class="set">
+          <p>セット数</p>
+          <input type="number" id="set">
         </div>
       </div>
-      <div class="container">
-        <button id="add">送信</button>
+      <div class="tmpl-node" style="display:none">
+        <p id="set-num">aaa</p>
+        <div class="sauna-temp">
+          <p>サウナの温度</p>
+          <input type="text" id="sauna-temp" class="">
+        </div>
+        <div class="sauna-time">
+          <p>サウナ時間</p>
+          <input type="text" id="sauna-time" class="">
+        </div>
+        <div class="sauna-hr">
+          <p>サウナ退出時の心拍数</p>
+          <input type="text" id="sauna-hr" class="">
+        </div>
+        <div class="bath-temp">
+          <p>水風呂の水温</p>
+          <input type="text" id="bath-temp" class="">
+        </div>
+        <div class="bath-time">
+          <p>水風呂時間</p>
+          <input type="text" id="bath-time" class="">
+        </div>
+        <div class="score">
+          <p>点数</p>
+          <input type="text" id="score" class="">
+        </div>
+      </div>
+      <div class="button">
+        <button id="add" style="display:none">送信</button>
       </div>
     </div>
   </main>
