@@ -9,9 +9,9 @@
   });
 
   //もう一つのnavリンク用
-  // document.querySelector('nav > ul > li > a.saulog').addEventListener('click', () =>{
-  //   location.href = `saulog.html?id=${id}`;
-  // });
+  document.querySelector('nav > ul > li > a.facility').addEventListener('click', () =>{
+    location.href = `facility.html?id=${id}`;
+  });
 
   document.querySelector('nav > ul > li > a.saulog').addEventListener('click', () =>{
     location.href = `saulog.html?id=${id}`;
