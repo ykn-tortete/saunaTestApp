@@ -13,7 +13,6 @@
   const url = new URL(window.location.href);
   const  params = url.searchParams;
   const id = params.get('id'); 
-  console.log(id)
 
   db.collection('saulog').where('userid','==',id)
     .get()

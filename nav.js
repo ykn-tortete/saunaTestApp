@@ -17,17 +17,17 @@
 
   
 
-  document.querySelector('.pc-menu a.facility').addEventListener('click', () =>{
+  document.querySelector('.pc-menu a.saulog').addEventListener('click', () =>{
     location.href = `saulog.html?id=${id}`;
   });
-  document.querySelector('.overray a.facility').addEventListener('click', () =>{
+  document.querySelector('.overray a.saulog').addEventListener('click', () =>{
     location.href = `saulog.html?id=${id}`;
   });
 
-  document.querySelector('.pc-menu a.facility').addEventListener('click', () =>{
+  document.querySelector('.pc-menu a.saudiary').addEventListener('click', () =>{
     location.href = `saudiary.html?id=${id}`;
   });
-  document.querySelector('.overray a.facility').addEventListener('click', () =>{
+  document.querySelector('.overray a.saudiary').addEventListener('click', () =>{
     location.href = `saudiary.html?id=${id}`;
   });
 }
