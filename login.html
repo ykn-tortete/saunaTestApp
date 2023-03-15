@@ -11,34 +11,60 @@
   </style>
   <title>Document</title>
 </head>
+<style>
+  header {
+      position: fixed;
+      color: white;
+      width: 100%;
+      height: 70px;
+      background-color: #8dc21f;
+  }
+</style>
+
+<br>
+<br>
+<br>
+
 <body>
-  <button id="login">ログイン</button>
-  <button id="logout" class="hide"></button>
+  <div>
+      <!--フォーム-->
+      <form name="login_form">
+          <center>
+              <h1 class="contact-title">ログイン</h1>
+              <p>ID, Passwordご入力の上, 「認証」ボタンをクリックしてください.</p>
+          </center>
+          <div>
 
-  <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"></script>
+              <center>
+                  <div>
+                      <input class="id" type="id" name="id" placeholder="ID">
+                  </div>
+                  <br>
+                  <div>
+                      <input class="pw" type="password" name="pass" placeholder="Password">
+                      <!-- <input class="pw" type="password" name="pass" placeholder="Password" onchange="nextPage()"> -->
+                  </div>
+              </center>
 
-<script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+          </div>
+          <button type="button">認証</button>
+          <!-- <button type="button" onClick="nextPage();">認証</button> -->
 
-  // Your web app's Firebase configuration
-  const firebaseConfig = {
-    apiKey: "AIzaSyA5Ic_gfWQr49WbBhGau_j1XXDxe5Wso_4",
-    authDomain: "sauna-test-app.firebaseapp.com",
-    projectId: "sauna-test-app",
-    storageBucket: "sauna-test-app.appspot.com",
-    messagingSenderId: "45278384487",
-    appId: "1:45278384487:web:dd2646605f533389e91fc2"
-  };
+      </form>
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-</script>
-  <script src="js/login.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"></script>
+      <!--ログイン処理-->
+      <!-- <script language="JavaScript" type="text/javascript">
+          function nextPage() {
+              id = document.login_form.id.value
+              pwd = document.login_form.pass.value;
+              location.href = id + pwd + ".html";
+          }
+      </script> -->
+      <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-firestore.js"></script>
+      <script src="js/firebase-initialize.js"></script>
+      <script src="js/login.js"></script>
 
+  </div>
 </body>
 </html>

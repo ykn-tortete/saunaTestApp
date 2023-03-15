@@ -1,14 +1,21 @@
 'use strict';
 
 {
-  firebase.initializeApp({
-    apiKey: 'AIzaSyA5Ic_gfWQr49WbBhGau_j1XXDxe5Wso_4',
-    projectId: 'sauna-test-app',
+  if (!firebase.apps.length) {
+    firebase.initializeApp({
+      apiKey: 'AIzaSyA5Ic_gfWQr49WbBhGau_j1XXDxe5Wso_4',
+      projectId: 'sauna-test-app',
     });
+ }
   
   const db = firebase.firestore();
 
-  db.collection('saulog')
+  const url = new URL(window.location.href);
+  const  params = url.searchParams;
+  const id = params.get('id'); 
+  console.log(id)
+
+  db.collection('saulog').where('userid','==',id)
     .get()
     .then(querySnapshot => {
       querySnapshot.forEach(doc => {
