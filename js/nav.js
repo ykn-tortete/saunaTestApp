@@ -8,16 +8,26 @@
     location.href = `index.html?id=${id}`;
   });
 
-  //もう一つのnavリンク用
-  document.querySelector('nav > ul > li > a.facility').addEventListener('click', () =>{
+  document.querySelector('.pc-menu a.facility').addEventListener('click', () =>{
+    location.href = `facility.html?id=${id}`;
+  });
+  document.querySelector('.overray a.facility').addEventListener('click', () =>{
     location.href = `facility.html?id=${id}`;
   });
 
-  document.querySelector('nav > ul > li > a.saulog').addEventListener('click', () =>{
+  
+
+  document.querySelector('.pc-menu a.facility').addEventListener('click', () =>{
+    location.href = `saulog.html?id=${id}`;
+  });
+  document.querySelector('.overray a.facility').addEventListener('click', () =>{
     location.href = `saulog.html?id=${id}`;
   });
 
-  document.querySelector('nav > ul > li > a.saudiary').addEventListener('click', () =>{
+  document.querySelector('.pc-menu a.facility').addEventListener('click', () =>{
+    location.href = `saudiary.html?id=${id}`;
+  });
+  document.querySelector('.overray a.facility').addEventListener('click', () =>{
     location.href = `saudiary.html?id=${id}`;
   });
 }
