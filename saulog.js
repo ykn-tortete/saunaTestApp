@@ -79,8 +79,9 @@
     const saulogCollection = db.collection('saulog');
 
     const boxNum = document.querySelector('div.saulog').childElementCount;
+    console.log(boxNum);
     
-    for (let j=0; j<boxNum+1; j++) {
+    for (let j=0; j<boxNum-1; j++) {
       saulogCollection.add({
         visitID: newVisitDoc,
         set: j + 1,
