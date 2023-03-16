@@ -45,13 +45,13 @@ header .container {
   align-items: center;
 }
 
-/* hero */
-.hero {
+/* features */
+.features {
   text-align: center;
   justify-content: center;
 }
 
-.hero .container {
+.features .container {
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -5,7 +5,7 @@
   const id = params.get('id'); 
 
   document.querySelector('header > div.logo > a > h1').addEventListener('click', () =>{
-    location.href = `index.html?id=${id}`;
+    location.href = `top.html?id=${id}`;
   });
 
   document.querySelector('.pc-menu a.facility').addEventListener('click', () =>{

@@ -1,0 +1,115 @@
+@charset "utf-8";
+
+/* common */
+body {
+  background-color: #f3f3f3;
+  font-family: Noto Sans Japanese,ヒラギノ角ゴ Pro W3,Hiragino Kaku Gothic Pro,メイリオ,Meiryo,ＭＳ Ｐゴシック,Osaka,sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+  text-decoration: none;
+}
+
+/* body */
+.login_content {
+  background-color: white;
+  width: 50%;
+  max-width: 800px;
+  min-width: 400px;
+  margin: 100px auto;
+  padding: 50px 80px;
+  box-sizing: border-box;
+}
+
+.login_headline {
+  text-align: center;
+}
+
+.trigger_login,
+.trigger_register {
+  line-height: 32px;
+  width: 50%;
+  display: inline-block;
+}
+
+.trigger {
+  margin-top: 16px;
+}
+
+.login_form_hide {
+  display: none;
+}
+
+.trigger_login:hover,
+.trigger_register:hover {
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.trigger_login {
+  border-radius: 6px 0 0 6px;
+  text-align: center;
+  float: left;
+  cursor: pointer;
+}
+
+.trigger_register {
+  border-radius: 0 6px 6px 0;
+  text-align: center;
+  cursor: pointer;
+}
+
+.selected {
+  background: #333;
+  color: #fff;
+}
+
+.unselected {
+  background: #f8f8f8;
+  color: #9d9e9d;
+}
+
+.login_form {
+  margin-top: 32px;
+}
+
+.login_form_key {
+  font-size: 8px;
+  margin: 16px 0 0;
+}
+
+
+.login_form_area input {
+  display: block;
+  margin: 3px auto 0;
+  padding: 14px;
+  height: 44px;
+  line-height: 23px;
+  width: 100%;
+  border-radius: 10px;
+  border: 3px solid #eee;
+  box-sizing: border-box;
+}
+
+.login_button button {
+  font-weight: bold;
+  color: #fcfcfe;
+  display: block;
+  margin: 32px auto 0;
+  padding: 14px;
+  width: 100%;
+  border-radius: 10px;
+  border: 0px;
+  background: #0051e0;
+  box-sizing: border-box;
+}
+
+.login_button button:hover {
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}

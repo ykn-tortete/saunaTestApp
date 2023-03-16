@@ -8,17 +8,50 @@
     });
  }
 
+  const login = document.querySelector('.trigger_login');
+  const register = document.querySelector('.trigger_register');
+
+  login.addEventListener('click', () => {
+
+    document.querySelector('.login_form_key_name').classList.add('login_form_hide');
+    document.querySelector('.login_form_span').classList.add('login_form_hide');
+    login.classList.remove('unselected');
+    login.classList.add('selected');
+    register.classList.remove('selected');
+    register.classList.add('unselected');
+    document.querySelector('button').textContent = 'ログインする';
+  })
+
+  register.addEventListener('click', () => {
+    document.querySelector('.login_form_key_name').classList.remove('login_form_hide');
+    document.querySelector('.login_form_span').classList.remove('login_form_hide');
+    login.classList.remove('selected');
+    login.classList.add('unselected');
+    register.classList.remove('unselected');
+    register.classList.add('selected');
+    document.querySelector('button').textContent = '会員登録する';
+  })
+
   const db = firebase.firestore();
 
-  document.querySelector('button').addEventListener('click', () =>{
-    const id = document.querySelector('.id').value;
-    const pw = document.querySelector('.pw').value;
-    db.collection("users").where('id', "==", id).where('password','==',pw).get().then(snapshot => {
-      snapshot.forEach(doc => {
-        console.log('ログイン完了');
-        location.href = `index.html?id=${id}`;
+  document.querySelector('button').addEventListener('click', () => {
+    const id = document.querySelector('.login_form_id').value;
+    const pw = document.querySelector('.login_form_pw').value;
+    if (login.classList.contains('selected') == true) {
+      db.collection("users").where('id', "==", id).where('password','==',pw).get().then(snapshot => {
+        snapshot.forEach(doc => {
+          console.log('ログイン完了');
+          location.href = `top.html?id=${id}`;
+        })
       })
-    })
+    } else if (register.classList.contains('selected') == true) {
+      const userName = document.querySelector('.login_form_name').value;
+      db.collection('users').add({
+        name: userName,
+        id: id,
+        password: pw,
+      })
+    }
   });
 }
 

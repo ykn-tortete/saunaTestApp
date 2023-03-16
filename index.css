@@ -1,0 +1,12 @@
+@charset "utf-8";
+/* hero */
+.hero {
+  text-align: center;
+  justify-content: center;
+}
+
+.hero .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
