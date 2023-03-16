@@ -1,12 +1,33 @@
 @charset "utf-8";
+
+/* common */
+.container {
+  width: calc(100% - 32px);
+  margin: 0 auto;
+  max-width: 800px;
+}
+
 /* hero */
-.hero {
+/* .hero {
   text-align: center;
   justify-content: center;
-}
+} */
+
+
 
 .hero .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+@media (max-width:600px) {
+  .container {
+    display: flex;
+  }
+
+  .desc,
+  .hero_img {
+    justify-content: space-between;
+  }
 }

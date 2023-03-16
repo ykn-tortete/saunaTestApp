@@ -1,29 +1,9 @@
 @charset "utf-8";
 
-/* common */
-body {
-  background-color: #f3f3f3;
-  font-family: Noto Sans Japanese,ヒラギノ角ゴ Pro W3,Hiragino Kaku Gothic Pro,メイリオ,Meiryo,ＭＳ Ｐゴシック,Osaka,sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
-h1,
-h2,
-p {
-  margin: 0;
-  text-decoration: none;
-}
-
 /* body */
-.login_content {
+.container {
   background-color: white;
-  width: 50%;
-  max-width: 800px;
-  min-width: 400px;
-  margin: 100px auto;
   padding: 50px 80px;
-  box-sizing: border-box;
 }
 
 .login_headline {
