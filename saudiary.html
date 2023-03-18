@@ -45,30 +45,38 @@
         </ul>
       </nav>
     </div>
-
-    <table>
-      <thead>
-        <tr>
-          <th>セット</th>
-          <th>サウナの温度</th>
-          <th>サウナ時間</th>
-          <th>サウナ退出時の心拍数</th>
-          <th>水風呂の水温</th>
-          <th>水風呂時間</th>
-          <th>点数</th>
-          <th>日付</th>
-          <th>施設</th>
-          <th>都道府県</th>
-        </tr>
-      </thead>
-      <tbody>
-      </tbody>
-    </table>
+    <div class="sortable-table">
+      <table  id="my-table1">
+        <thead>
+          <tr>
+            <th data-id="set" sortable>セット</th>
+            <th data-id="sauna_temp" sortable>サウナの温度</th>
+            <th data-id="sauna_time" sortable>サウナ時間</th>
+            <th data-id="sauna_hr" sortable>サウナ退出時の心拍数</th>
+            <th data-id="bath_temp" sortable>水風呂の水温</th>
+            <th data-id="bath_time" sortable>水風呂時間</th>
+            <th data-id="score" sortable>点数</th>
+            <th data-id="date" sortable>日付</th>
+            <th data-id="facility" sortable>施設</th>
+            <th data-id="prefecture" sortable>都道府県</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
   </main>
+  <div class="chart">
+    <canvas class="date_score" id="chart" height="300"></canvas>
+    <canvas class="date_score" id="chart2" height="300"></canvas>
 
-  <canvas id="chart" height="200"></canvas>
+  </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/@riversun/sortable-table/lib/sortable-table.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+
 
   <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-firestore.js"></script>

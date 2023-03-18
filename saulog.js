@@ -102,11 +102,9 @@
 
     // htmlのフォームの要素数を取得
     const boxNum = document.querySelector('div.saulog .loop').childElementCount;
-    console.log(boxNum);
     
     // フォームに入力されたサウログをsaulogテーブルに送信
     for (let j=0; j<boxNum; j++) {
-      console.log(j);
       saulogCollection.add({
         visitID: newVisitDoc,
         set: j + 1,

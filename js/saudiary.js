@@ -2,6 +2,7 @@
 
 {
   let dataAry = [];
+  let dataAry2 = [];
 
   // firestoreとの接続
   if (!firebase.apps.length) {
@@ -90,29 +91,114 @@
           row.appendChild(cellFacility);
           row.appendChild(cellPref);
           
-          let dateNum = new Date(docSnapshot.data().date).getTime();
+          let dateNum = new Date(docSnapshot.data().date); // getTime()
+
           let scoreNum = Number(doc.data().score);
 
-          let dataObj ={};
+          let dataObj = {};
           dataObj.x = dateNum;
           dataObj.y = scoreNum;
 
           dataAry.push(dataObj);
 
+          let set = document.querySelectorAll('[data-id="set"]');
+          let saunaTemp = document.querySelectorAll('[data-id="sauna_temp"]');
+          let saunaTime = document.querySelectorAll('[data-id="sauna_time"]');
+          let saunaHr = document.querySelectorAll('[data-id="sauna_hr"]');
+          let bathTemp = document.querySelectorAll('[data-id="bath_temp"]');
+          let bathTime = document.querySelectorAll('[data-id="bath_time"]');
+          let score = document.querySelectorAll('[data-id="score"]');
+          let date = document.querySelectorAll('[data-id="date"]');
+          let facility = document.querySelectorAll('[data-id="facility"]');
+          let prefecture = document.querySelectorAll('[data-id="prefecture"]');
+
+
+          let dataObj2 = {};
+          dataObj2.set = doc.data().set
+          dataObj2.saunaTemp = doc.data().sauna_temp
+          dataObj2.saunaTime = doc.data().sauna_time
+          dataObj2.saunaHr = doc.data().sauna_hr
+          dataObj2.bathTemp = doc.data().bath_temp
+          dataObj2.bathTime = doc.data().bath_time
+          dataObj2.score = doc.data().score
+          dataObj2.score = docSnapshot.data().date
+          dataObj2.facility = docSnapshot.data().facility
+          dataObj2.prefecture = docSnapshot.data().prefecture
+
+          dataAry2.push(dataObj2);
+
+          // chart.jsを使いグラフを描画
           const ctx = document.getElementById('chart');
           const myChart = new Chart(ctx, {
+            // 散布図を設定
+            // saulogデータの取り込み
             type: 'scatter',
             data: {
               datasets: [{
-                // 実際のデータ
                 data: dataAry,
               }],
             },
-            // options: {}, ...
+            options: {
+              scales: {
+                // x軸を日付に変更
+                xAxes: [{
+                  type: 'time',
+                  time: {
+                    displayFormats: {
+                       'millisecond': 'MMM dd',
+                       'second': 'MMM dd',
+                       'minute': 'MMM dd',
+                       'hour': 'MMM dd',
+                       'day': 'MMM dd',
+                       'week': 'MMM dd',
+                       'month': 'MMM dd',
+                       'quarter': 'MMM dd',
+                       'year': 'MMM dd',
+                    }
+                  }
+                }],
+                // y軸の最大・最小値を設定
+                yAxes: [{
+                  ticks: {     // 目盛り        
+                    min: 0,      // 最小値
+                      // beginAtZero: true でも同じ
+                    max: 120,     // 最大値
+                    stepSize: 5  // 間隔
+                  }
+                }]
+              }
+            }
+          });
+          // chart.jsを使いグラフを描画
+          const ctx2 = document.getElementById('chart2');
+          const myChart2 = new Chart(ctx2, {
+            // 散布図を設定
+            // saulogデータの取り込み
+            type: 'scatter',
+            data: {
+              datasets: [{
+                data: dataAry2,
+              }],
+            }
           });
 
         });
         document.querySelector('tbody').appendChild(row);
+
+        const sortableTable = new SortableTable();
+
+        // set table element
+        sortableTable.setTable(document.querySelector('#my-table1'));
+        // set data to be sorted
+        sortableTable.setData(dataAry2);
+        // handling events
+        sortableTable.events()
+            .on('sort', (event) => {
+              console.log(`[SortableTable#onSort]
+            event.colId=${event.colId}
+            event.sortDir=${event.sortDir}
+            event.data=\n${JSON.stringify(event.data)}`);
+            });
       });
     });
 }
