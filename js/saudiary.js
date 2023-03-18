@@ -1,22 +1,21 @@
 'use strict';
 
 {
-    // firestoreとの接続
+  let dataAry = [];
+
+  // firestoreとの接続
   if (!firebase.apps.length) {
     firebase.initializeApp({
       apiKey: 'AIzaSyA5Ic_gfWQr49WbBhGau_j1XXDxe5Wso_4',
       projectId: 'sauna-test-app',
     });
  }
-  
   const db = firebase.firestore();
 
-    // URLのログインidをgetパラメータから取得
+  // URLのログインidをgetパラメータから取得
   const url = new URL(window.location.href);
   const  params = url.searchParams;
   const id = params.get('id'); 
-
-  let datas = [];
 
     // saulogデータの各レコードを取得
   db.collection('saulog').where('userid','==',id)
@@ -94,86 +93,26 @@
           let dateNum = new Date(docSnapshot.data().date).getTime();
           let scoreNum = Number(doc.data().score);
 
-          let oneData = {
-            x: dateNum,
-            y: scoreNum
-          }
+          let dataObj ={};
+          dataObj.x = dateNum;
+          dataObj.y = scoreNum;
 
-          datas.push(oneData);
+          dataAry.push(dataObj);
+
+          const ctx = document.getElementById('chart');
+          const myChart = new Chart(ctx, {
+            type: 'scatter',
+            data: {
+              datasets: [{
+                // 実際のデータ
+                data: dataAry,
+              }],
+            },
+            // options: {}, ...
+          });
+
         });
-
         document.querySelector('tbody').appendChild(row);
       });
-    });
-
-    console.log(datas);
-    console.log(Array.isArray(datas));
-
-    let datass = [{
-      x: -10,
-      y: 0
-    }, {
-      x: 0,
-      y: 10
-    }, {
-      x: 10,
-      y: 5
-    }, {
-      x: 0.5,
-      y: 5.5
-    }];
-    console.log(datass);
-    console.log(Array.isArray(datass));
-
-    const ctx = document.getElementById('chart');
-    const myChart = new Chart(ctx, {
-      type: 'scatter',
-      data: {
-        datasets: [{
-          // 実際のデータ
-          data: datass,
-        }],
-      },
-      // options: {}, ...
-      options: {
-        // scales: {
-        //     x:{
-        //         min: 1678838400000,
-        //         max: 1678838400000
-        //         //beginAtZero: true
-        //     }
-        scales: {
-          x: {
-            type: 'linear',
-            display: true,
-            position: 'bottom',
-            min: 0,
-            max: 12,
-            title: {
-              display: true,
-              text: 'x',
-              font: {
-                size: 14,
-              }
-            },
-            ticks: {
-              stepSize: 2,
-            }
-          },
-          y: {
-            type: 'linear',
-            display: true,
-            min: 0,
-            max: 120,
-            title: {
-              display: true,
-              text: 'y',
-              font: {
-                size: 14,
-              }
-            },
-          }
-        },
-      },
     });
 }
