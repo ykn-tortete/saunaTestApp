@@ -48,29 +48,27 @@
       })
     } else if (register.classList.contains('selected') == true) {
       const userName = document.querySelector('.login_form_name').value;
-      db.collection('users').add({
-        name: userName,
-        id: id,
-        password: pw,
-      })
+      if (userName && id && pw) {
+        modal.classList.remove('hidden');
+        mask.classList.remove('hidden');
+        console.log(userName);
+        console.log(id);
+        console.log(pw);
+        db.collection('users').add({
+          name: userName,
+          id: id,
+          password: pw,
+        })
+      }
     }
   });
-
-
 
   const button = document.getElementById('button');
   const close = document.getElementById('close');
   const modal = document.getElementById('modal');
   const mask = document.getElementById('mask');
 
-  button.addEventListener('click', () => {
-    if (document.querySelector('.register_button') != null) {
-      modal.classList.remove('hidden');
-      mask.classList.remove('hidden');
-    } else {
-      console.log('test')
-    }
-  });
+
 
   close.addEventListener('click', () => {
     modal.classList.add('hidden');
