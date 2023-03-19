@@ -20,6 +20,7 @@
     register.classList.remove('selected');
     register.classList.add('unselected');
     document.querySelector('button').textContent = 'ログインする';
+    document.querySelector('button').classList.remove('register_button');
   })
 
   register.addEventListener('click', () => {
@@ -30,6 +31,7 @@
     register.classList.remove('unselected');
     register.classList.add('selected');
     document.querySelector('button').textContent = '会員登録する';
+    document.querySelector('button').classList.add('register_button');
   })
 
   const db = firebase.firestore();
@@ -52,6 +54,31 @@
         password: pw,
       })
     }
+  });
+
+
+
+  const button = document.getElementById('button');
+  const close = document.getElementById('close');
+  const modal = document.getElementById('modal');
+  const mask = document.getElementById('mask');
+
+  button.addEventListener('click', () => {
+    if (document.querySelector('.register_button') != null) {
+      modal.classList.remove('hidden');
+      mask.classList.remove('hidden');
+    } else {
+      console.log('test')
+    }
+  });
+
+  close.addEventListener('click', () => {
+    modal.classList.add('hidden');
+    mask.classList.add('hidden');
+  });
+
+  mask.addEventListener('click', () => {
+    close.click();
   });
 }
 

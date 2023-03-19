@@ -46,19 +46,19 @@
       </nav>
     </div>
     <div class="sortable-table">
-      <table  id="my-table1">
+      <table >
         <thead>
           <tr>
-            <th data-id="set" sortable>セット</th>
-            <th data-id="sauna_temp" sortable>サウナの温度</th>
-            <th data-id="sauna_time" sortable>サウナ時間</th>
-            <th data-id="sauna_hr" sortable>サウナ退出時の心拍数</th>
-            <th data-id="bath_temp" sortable>水風呂の水温</th>
-            <th data-id="bath_time" sortable>水風呂時間</th>
-            <th data-id="score" sortable>点数</th>
-            <th data-id="date" sortable>日付</th>
-            <th data-id="facility" sortable>施設</th>
-            <th data-id="prefecture" sortable>都道府県</th>
+            <th class="sort" data-sort="set">セット</th>
+            <th class="sort" data-sort="sauna_temp">サウナの温度</th>
+            <th class="sort" data-sort="sauna_time">サウナ時間</th>
+            <th class="sort" data-sort="sauna_hr">サウナ退出時の心拍数</th>
+            <th class="sort" data-sort="bath_temp">水風呂の水温</th>
+            <th class="sort" data-sort="bath_time">水風呂時間</th>
+            <th class="sort" data-sort="score">点数</th>
+            <th class="sort" data-sort="date">日付</th>
+            <th class="sort" data-sort="facility">施設</th>
+            <th class="sort" data-sort="prefecture">都道府県</th>
           </tr>
         </thead>
         <tbody>
@@ -68,18 +68,18 @@
   </main>
   <div class="chart">
     <canvas class="date_score" id="chart" height="300"></canvas>
-    <canvas class="date_score" id="chart2" height="300"></canvas>
+    <!-- <canvas class="date_score" id="chart2" height="300"></canvas> -->
 
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/@riversun/sortable-table/lib/sortable-table.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.min.js"></script>
+  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.1/chart.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
 
-
-  <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
   <script src="js/firebase-initialize.js"></script>
   <script src="js/nav.js"></script>
   <script src="js/saudiary.js"></script>

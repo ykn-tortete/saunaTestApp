@@ -124,4 +124,25 @@
       });
     }
   });
+
+  const add = document.getElementById('add');
+  const close = document.getElementById('modal_close');
+  const modal = document.getElementById('modal');
+  const mask = document.getElementById('mask');
+
+  add.addEventListener('click', () => {
+    modal.classList.remove('hidden');
+    mask.classList.remove('hidden');
+
+  });
+
+  close.addEventListener('click', () => {
+    modal.classList.add('hidden');
+    mask.classList.add('hidden');
+    window.location.reload;
+  });
+
+  mask.addEventListener('click', () => {
+    close.click();
+  });
 }
