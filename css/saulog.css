@@ -19,7 +19,7 @@
   padding: 16px;
 }
 
-#open, #modal_close {
+#modal_close {
   cursor: pointer;
   width: 200px;
   border: 1px solid #ccc;
